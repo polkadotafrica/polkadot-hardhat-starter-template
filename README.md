@@ -46,7 +46,7 @@ Edit `.env` and add your private key (never commit this file!).
 ## Project Structure
 
 ```
-hardhat-starter/
+polkadot-hardhat-starter-template/
 ├── contracts/          # Solidity smart contracts
 │   └── Counter.sol     # Simple counter contract example
 ├── ignition/           # Deployment modules
