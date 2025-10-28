@@ -25,8 +25,8 @@ Before getting started, ensure you have:
 1. Clone or download this template:
 
 ```bash
-git clone <repository-url>
-cd hardhat-starter
+git clone https://github.com/polkadotafrica/polkadot-hardhat-starter-template
+cd polkadot-hardhat-starter-template
 ```
 
 2. Install dependencies:
