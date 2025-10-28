@@ -1,3 +1,5 @@
+global.WebSocket = require('ws')
+
 require('@nomicfoundation/hardhat-toolbox')
 require('@parity/hardhat-polkadot')
 require('dotenv').config()
