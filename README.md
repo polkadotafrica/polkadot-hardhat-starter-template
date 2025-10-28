@@ -6,10 +6,11 @@ A production-ready starter template for developing smart contracts on Polkadot H
 
 - ✅ Pre-configured for Polkadot Hub (TestNet and local node)
 - ✅ Simple Counter contract example
-- ✅ Comprehensive test suite
-- ✅ Deployment scripts using Hardhat Ignition
-- ✅ Interaction scripts for deployed contracts
-- ✅ npm scripts for common tasks
+- ✅ Comprehensive test suite with 12 passing tests
+- ✅ Simple deployment script (`scripts/deploy.js`)
+- ✅ Interactive CLI for contract interaction
+- ✅ Prettier configured for code formatting
+- ✅ Environment-based configuration with dotenv
 
 ## Prerequisites
 
@@ -49,14 +50,13 @@ Edit `.env` and add your private key (never commit this file!).
 polkadot-hardhat-starter-template/
 ├── contracts/          # Solidity smart contracts
 │   └── Counter.sol     # Simple counter contract example
-├── ignition/           # Deployment modules
-│   └── modules/
-│       └── Counter.js  # Counter deployment module
-├── scripts/            # Interaction scripts
-│   └── interact.js     # Script to interact with deployed contracts
+├── scripts/            # Deployment and interaction scripts
+│   ├── deploy.js       # Deployment script
+│   └── interact.js     # Interactive script to interact with deployed contracts
 ├── test/               # Test files
 │   └── Counter.test.js # Counter contract tests
 ├── hardhat.config.js   # Hardhat configuration
+├── .env.example        # Environment variables template
 └── package.json        # Project dependencies and scripts
 ```
 
@@ -126,7 +126,7 @@ npm run deploy:testnet
 
 ### Interact with Deployed Contract
 
-After deployment, you can interact with your contract by providing the contract address:
+The interact script provides an interactive CLI menu to interact with your deployed contract:
 
 ```bash
 CONTRACT_ADDRESS=0xYourContractAddress npx hardhat run scripts/interact.js --network polkadotHubTestnet
@@ -138,14 +138,63 @@ Or pass it as an argument:
 npx hardhat run scripts/interact.js --network polkadotHubTestnet 0xYourContractAddress
 ```
 
+The interactive menu allows you to:
+- Increment the counter
+- Decrement the counter
+- Reset the counter (owner only)
+- View the contract owner
+- See the current count in real-time
+
+### Format Code
+
+Format all JavaScript files with Prettier:
+
+```bash
+npm run format
+```
+
+Check if files are formatted correctly:
+
+```bash
+npm run format:check
+```
+
 ## The Counter Contract
 
-The included Counter contract demonstrates basic smart contract functionality:
+The included Counter contract (`contracts/Counter.sol`) demonstrates basic smart contract functionality:
 
 - `increment()` - Increases the counter by 1
 - `decrement()` - Decreases the counter by 1 (reverts if count is 0)
 - `reset()` - Resets counter to 0 (only owner)
 - `getCount()` - Returns the current count
+- `owner` - Public variable storing the contract owner address
+
+## Deployment Script
+
+The `scripts/deploy.js` file contains a simple deployment script that:
+
+1. Connects to the specified network
+2. Displays the deployer account and balance
+3. Deploys the Counter contract with an initial count of 0
+4. Outputs the deployed contract address
+5. Provides the command to interact with the deployed contract
+
+Example output:
+```
+Deploying Counter contract to polkadotHubTestnet ...
+
+Deploying with account: 0x3B465D0695621f330a45BCc15fcF6B2d8f2046d6
+Account balance: 9853.4719547776 PAS
+
+Deploying Counter contract...
+Waiting for deployment...
+
+✅ Counter deployed successfully!
+Contract address: 0xB7f6F99271978081b6357bd239005bbA337A56ce
+
+📝 Save this address to interact with your contract:
+CONTRACT_ADDRESS=0xB7f6F99271978081b6357bd239005bbA337A56ce npx hardhat run scripts/interact.js --network polkadotHubTestnet
+```
 
 ## Network Configuration
 
