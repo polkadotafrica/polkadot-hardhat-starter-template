@@ -1,0 +1,34 @@
+{
+  "name": "hardhat-polkadot-starter",
+  "version": "1.0.0",
+  "description": "A starter template for developing smart contracts on Polkadot Hub using Hardhat",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.js",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network polkadotHubTestnet",
+    "interact": "hardhat run scripts/interact.js",
+    "format": "prettier --write \"**/*.js\"",
+    "format:check": "prettier --check \"**/*.js\""
+  },
+  "keywords": [
+    "hardhat",
+    "polkadot",
+    "smart-contracts",
+    "solidity",
+    "polkavm"
+  ],
+  "author": "Polkadot Africa",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@parity/hardhat-polkadot": "^0.1.9",
+    "dockerode": "^4.0.9",
+    "dotenv": "^17.2.3",
+    "hardhat": "^2.22.0",
+    "prompts": "^2.4.2",
+    "solc": "0.8.26"
+  }
+}
