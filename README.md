@@ -46,6 +46,16 @@ CONTRACT_ADDRESS=
 
 > ⚠️ **Security Warning**: Never commit your `.env` file or share your private key!
 
+Another secure way to do this is to use hardhat vars to manage the private key(s):
+```bash
+ npx hardhat vars set PRIVATE_KEY <PRIVATE_KEY>
+```
+
+You can confirm that the PRIVATE_KEY is stored using:
+```bash
+npx hardhat vars get PRIVATE_KEY
+```
+
 ## Project Structure
 
 ```
