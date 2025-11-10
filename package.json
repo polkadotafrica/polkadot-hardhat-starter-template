@@ -30,5 +30,8 @@
     "hardhat": "^2.22.0",
     "prompts": "^2.4.2",
     "solc": "0.8.26"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
   }
 }
